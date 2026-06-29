@@ -1,5 +1,7 @@
 const frogElement = document.querySelector('#frog')
 const carOneElement = document.querySelector('.car')
+const carTwoElement = document.querySelector('.car-2')
+const carThreeElement = document.querySelector('.car-3')
 
 
 //Initial frog position
@@ -11,6 +13,8 @@ frogElement.style.left = frogLeft + "px"
 //Initial car position
 let carLeft = 0
 carOneElement.style.left = carLeft + 'px'
+carTwoElement.style.left = carLeft + 'px'
+carThreeElement.style.left = carLeft + 'px'
 
 function move(event){
     if(event.key === 'ArrowUp'){
@@ -42,17 +46,34 @@ function move(event){
     }
 }
 
-function carMovement(){
-    carLeft += 10
+function carOneMovement(){
+    carLeft += 7
     if(carLeft > 510){
         carLeft= 0
     }
         carOneElement.style.left = carLeft + 'px'
 }
 
+function carTwoMovement(){
+    carLeft += 30
+    if(carLeft > 510){
+        carLeft= 0
+    }
+        carTwoElement.style.left = carLeft + 'px'
+}
 
-// set interval for the red car to move
-//setInterval(carMovement,80)
+function carThreeMovement(){
+    carLeft += 20
+    if(carLeft > 510){
+        carLeft= 0
+    }
+        carThreeElement.style.left = carLeft + 'px'
+}
+
+// set interval for the cars to move
+setInterval(carOneMovement,100)
+setInterval(carTwoMovement,700)
+setInterval(carThreeMovement,1200)
 
 
 // Event Listener
