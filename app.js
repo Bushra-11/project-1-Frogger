@@ -51,9 +51,7 @@ function move(event){
         frogElement.style.left = frogLeft + 'px'
         }
     }
-
     checkCollision()
-
 }
 function carOneMovement(){
 
@@ -87,10 +85,9 @@ function carThreeMovement(){
 }
 
 function checkCollision(){
-    if(frogLeft === carOneLeft && frogTop === Math.abs(carOneLeft)){
+    // if postion of the frog = position of the car you lose 
         decrementLives()
     }
-}
 
 function decrementLives(){
     lives -= 1
