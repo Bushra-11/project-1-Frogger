@@ -108,7 +108,7 @@ body {
 
 .roof {
     width: 40px;
-    height: 20px;
+    height: 10px;
     background-color: #F22B2B;
     position: absolute;
     bottom: 30px;
@@ -146,7 +146,7 @@ body {
 
 .roof-2 {
     width: 40px;
-    height: 20px;
+    height: 10px;
     background-color: #5262dd;
     position: absolute;
     bottom: 30px;
@@ -184,7 +184,7 @@ body {
 
 .roof-3 {
     width: 40px;
-    height: 20px;
+    height: 10px;
     background-color: #ff8514;
     position: absolute;
     bottom: 30px;
@@ -222,4 +222,11 @@ body {
     width: 60px;
     background-color: rgb(43, 149, 73);
     border-radius: 50%;
+}
+
+.road {
+
+    width: 600px;
+    height: 240px;
+    background-color: black;
 }
