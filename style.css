@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    margin: 60px;
+}
+
+#board {
+    height: 660px;
+    width: 600px;
+    position: relative;
+    border: black solid;
+}
+
+#frog {
+    margin: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(71, 213, 73);
+    border-radius: 30%;
+    overflow: visible;
+    position: absolute;
+    z-index: 10;
+}
+
+.eyes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 6px;
+}
+
+.eye {
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.cheeks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 3px;
+}
+
+.cheek {
+    width: 10px;
+    height: 5px;
+    background-color: rgb(255, 197, 214);
+    border-radius: 40%;
+}
+
+.mouth {
+    position: absolute;
+    left: 22px;
+    top: 13px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    rotate: 90deg;
+    font-weight: 600;
+    font-size: 8px;
+    font-family: Roboto;
+}
+
+.belly {
+    width: 25px;
+    height: 25px;
+    background-color: antiquewhite;
+    border-radius: 40%;
+    margin: 0 auto;
+}
+
+.legs {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Fredoka;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.right-leg {
+    margin-right: -9px;
+    color: rgb(71, 213, 73);
+}
+
+.left-leg {
+    transform: rotateY(180deg);
+    margin-left: -9px;
+    color: rgb(71, 213, 73);
+}
