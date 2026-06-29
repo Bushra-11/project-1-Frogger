@@ -170,3 +170,41 @@ body {
     background-color: black;
     border-radius: 50%;
 }
+
+.car-3 {
+    margin: 20px;
+    width: 70px;
+    height: 30px;
+    background-color: #ff8514;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+}
+
+.roof-3 {
+    width: 40px;
+    height: 20px;
+    background-color: #ff8514;
+    position: absolute;
+    bottom: 30px;
+    left: 15px;
+
+}
+
+.wheels-3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    bottom: -10px;
+    left: 5px;
+    right: 5px;
+}
+
+.wheel-3 {
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    border-radius: 50%;
+}
