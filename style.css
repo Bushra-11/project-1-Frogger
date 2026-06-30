@@ -209,11 +209,18 @@ body {
     border-radius: 50%;
 }
 
+
 .log {
     margin: 20px;
     width: 90px;
     height: 30px;
     background-color: rgb(158, 119, 72);
+}
+
+.lilypads {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .lilypad {

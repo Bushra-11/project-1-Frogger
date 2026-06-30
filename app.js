@@ -98,9 +98,9 @@ function decrementLives(){
 
 
 // set interval for the cars to move
-setInterval(carOneMovement,100)
-setInterval(carTwoMovement,700)
-setInterval(carThreeMovement,1200)
+//setInterval(carOneMovement,100)
+//setInterval(carTwoMovement,700)
+//setInterval(carThreeMovement,1200)
 
 
 // Event Listener
