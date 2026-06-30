@@ -2,6 +2,9 @@ const frogElement = document.querySelector('#frog')
 const carOneElement = document.querySelector('.car')
 const carTwoElement = document.querySelector('.car-2')
 const carThreeElement = document.querySelector('.car-3')
+const logOneElement = document.querySelector('.log-1')
+const logTwoElement = document.querySelector('.log-2')
+
 
 
 //Initial frog position
@@ -15,12 +18,20 @@ let carOneLeft = 0
 let carTwoLeft = 0
 let carThreeLeft = 0
 
+//Intial logs position
+let logOnePosition = 0
+let logTwoPosition = 250
+
+
 //Intial number of lives
 let lives = 3
 
 carOneElement.style.left = carOneLeft + 'px'
 carTwoElement.style.left = carTwoLeft + 'px'
 carThreeElement.style.left = carThreeLeft + 'px'
+
+logOneElement.style.left = logOnePosition + 'px'
+logTwoElement.style.left = logTwoPosition + 'px'
 
 function move(event){
 
@@ -51,7 +62,6 @@ function move(event){
         frogElement.style.left = frogLeft + 'px'
         }
     }
-    checkCollision()
 }
 function carOneMovement(){
 
@@ -60,7 +70,6 @@ function carOneMovement(){
         carOneLeft= 0
     }
         carOneElement.style.left = carOneLeft + 'px'
-        checkCollision()
 
 }
 
@@ -70,7 +79,6 @@ function carTwoMovement(){
         carTwoLeft= 0
     }
         carTwoElement.style.left = carTwoLeft + 'px'
-        checkCollision()
 
 }
 
@@ -80,8 +88,23 @@ function carThreeMovement(){
         carThreeLeft= 0
     }
         carThreeElement.style.left = carThreeLeft + 'px'
-        checkCollision()
+}
 
+function logOneMovement(){
+    logOnePosition += 20
+    if(logOnePosition > 490){
+        logOnePosition= 0
+    }
+    logOneElement.style.left = logOnePosition + 'px'
+}
+
+function logTwoMovement(){
+    logTwoPosition += 10
+    if(logTwoPosition > 490){
+        logTwoPosition = 0
+    }
+
+logTwoElement.style.left = logTwoPosition + 'px'
 }
 
 function checkCollision(){
@@ -94,13 +117,22 @@ function decrementLives(){
     //reset the frog position again
     frogTop = 580
     frogLeft = 260
+    carOneLeft = 0
+    carTwoLeft = 0
+    carThreeLeft = 0
+    logOnePosition = 0
+    logTwoPosition = 0
 }
 
 
 // set interval for the cars to move
-//setInterval(carOneMovement,100)
-//setInterval(carTwoMovement,700)
-//setInterval(carThreeMovement,1200)
+setInterval(carOneMovement,100)
+setInterval(carTwoMovement,700)
+setInterval(carThreeMovement,1200)
+
+//set interval for the logs to move
+setInterval(logOneMovement,500)
+setInterval(logTwoMovement,300)
 
 
 // Event Listener

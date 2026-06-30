@@ -210,11 +210,30 @@ body {
 }
 
 
-.log {
-    margin: 20px;
-    width: 90px;
-    height: 30px;
+.log-firstRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.log-secondRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.log-1 {
+    width: 100px;
+    height: 40px;
     background-color: rgb(158, 119, 72);
+    position: absolute;
+}
+
+.log-2 {
+    width: 100px;
+    height: 40px;
+    background-color: rgb(158, 119, 72);
+    position: absolute;
 }
 
 .lilypads {
