@@ -31,6 +31,11 @@ let lives = 3
 let isOnLogOne = false
 let isOnLogTwo = false
 
+let hitCarOne = false
+let hitCarTwo = false
+let hitCarThree = false
+
+
 
 
 carOneElement.style.left = carOneLeft + 'px'
@@ -94,6 +99,7 @@ function carOneMovement() {
         carOneLeft = 0
     }
     carOneElement.style.left = carOneLeft + 'px'
+    checkCollision()
 
 }
 
@@ -103,6 +109,7 @@ function carTwoMovement() {
         carTwoLeft = 0
     }
     carTwoElement.style.left = carTwoLeft + 'px'
+    checkCollision()
 
 }
 
@@ -112,6 +119,8 @@ function carThreeMovement() {
         carThreeLeft = 0
     }
     carThreeElement.style.left = carThreeLeft + 'px'
+    checkCollision()
+
 }
 
 function logOneMovement() {
@@ -167,7 +176,34 @@ function rideLogTwo() {
 
 function checkCollision() {
     // if postion of the frog = position of the car you lose 
-    decrementLives()
+    let carOneRect = carOneElement.getBoundingClientRect()
+    let carTwoRect = carTwoElement.getBoundingClientRect()
+    let carThreeRect = carThreeElement.getBoundingClientRect()
+    let frogRect = frogElement.getBoundingClientRect()
+
+    hitCarOne = (frogRect.left < carOneRect.right &&
+        frogRect.right > carOneRect.left &&
+        frogRect.top < carOneRect.bottom &&
+        frogRect.bottom > carOneRect.top)
+
+
+    hitCarTwo = (frogRect.left < carTwoRect.right &&
+        frogRect.right > carTwoRect.left &&
+        frogRect.top < carTwoRect.bottom &&
+        frogRect.bottom > carTwoRect.top)
+
+    hitCarThree = (frogRect.left < carThreeRect.right &&
+        frogRect.right > carThreeRect.left &&
+        frogRect.top < carThreeRect.bottom &&
+        frogRect.bottom > carThreeRect.top)
+
+
+    if (hitCarOne || hitCarTwo || hitCarThree) {
+        decrementLives()
+    }
+
+
+
 }
 
 function decrementLives() {
@@ -180,6 +216,15 @@ function decrementLives() {
     carThreeLeft = 0
     logOnePosition = 0
     logTwoPosition = 0
+
+    frogElement.style.top = frogTop + 'px'
+    frogElement.style.left = frogLeft + 'px'
+    carOneElement.style.left = carOneLeft + 'px'
+    carTwoElement.style.left = carTwoLeft + 'px'
+    carThreeElement.style.left = carThreeLeft + 'px'
+    logOneElement.style.left = logOnePosition + 'px'
+    logTwoElement.style.left = logTwoPosition + 'px'
+
 }
 
 function landOnLily(lily) {
