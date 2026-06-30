@@ -90,7 +90,32 @@ function move(event) {
 
     rideLogOne()
     rideLogTwo()
+    checkDrowning()
 }
+
+
+
+function decrementLives() {
+    lives -= 1
+    //reset the frog position again
+    frogTop = 580
+    frogLeft = 260
+    carOneLeft = 0
+    carTwoLeft = 0
+    carThreeLeft = 0
+    logOnePosition = 0
+    logTwoPosition = 0
+
+    frogElement.style.top = frogTop + 'px'
+    frogElement.style.left = frogLeft + 'px'
+    carOneElement.style.left = carOneLeft + 'px'
+    carTwoElement.style.left = carTwoLeft + 'px'
+    carThreeElement.style.left = carThreeLeft + 'px'
+    logOneElement.style.left = logOnePosition + 'px'
+    logTwoElement.style.left = logTwoPosition + 'px'
+
+}
+
 
 function carOneMovement() {
 
@@ -136,6 +161,7 @@ function logOneMovement() {
         frogElement.style.left = frogLeft + 'px'
     }
     rideLogOne()
+    checkDrowning()
 
 }
 
@@ -151,6 +177,7 @@ function logTwoMovement() {
         frogElement.style.left = frogLeft + 'px'
     }
     rideLogTwo()
+    checkDrowning()
 }
 
 function rideLogOne() {
@@ -201,43 +228,27 @@ function checkCollision() {
     if (hitCarOne || hitCarTwo || hitCarThree) {
         decrementLives()
     }
-
-
-
 }
 
-function decrementLives() {
-    lives -= 1
-    //reset the frog position again
-    frogTop = 580
-    frogLeft = 260
-    carOneLeft = 0
-    carTwoLeft = 0
-    carThreeLeft = 0
-    logOnePosition = 0
-    logTwoPosition = 0
-
-    frogElement.style.top = frogTop + 'px'
-    frogElement.style.left = frogLeft + 'px'
-    carOneElement.style.left = carOneLeft + 'px'
-    carTwoElement.style.left = carTwoLeft + 'px'
-    carThreeElement.style.left = carThreeLeft + 'px'
-    logOneElement.style.left = logOnePosition + 'px'
-    logTwoElement.style.left = logTwoPosition + 'px'
-
+function isOnLog(){
+    return isOnLogOne || isOnLogTwo
 }
 
-function landOnLily(lily) {
-    lily.classList.add('visited')
-    let allVisited = [...lilyPadElements].every(pad => pad.classList.contains('visited'))
-    if (allVisited) {
-        win()
+function checkDrowning(){
+    let logOneLocation = logOneElement.getBoundingClientRect()
+    let logTwoLocation = logTwoElement.getBoundingClientRect()
+    let frogRect = frogElement.getBoundingClientRect()
+
+    const inLogOneRow = frogRect.top < logOneLocation.bottom && frogRect.bottom > logOneLocation.top
+    const inLogTwoRow = frogRect.top < logTwoLocation.bottom && frogRect.bottom > logTwoLocation.top
+
+    const onLogOne = inLogOneRow && frogRect.left < logOneLocation.right && frogRect.right > logOneLocation.left
+    const onLogTwo = inLogTwoRow && frogRect.left < logTwoLocation.right && frogRect.right > logTwoLocation.left
+
+    if ((inLogOneRow || inLogTwoRow) && !(onLogOne || onLogTwo)) {
+        decrementLives()
     }
-}
-
-function win() {
-
-}
+}   
 
 // set interval for the cars to move
 setInterval(carOneMovement, 100)
