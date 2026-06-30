@@ -4,6 +4,7 @@ const carTwoElement = document.querySelector('.car-2')
 const carThreeElement = document.querySelector('.car-3')
 const logOneElement = document.querySelector('.log-1')
 const logTwoElement = document.querySelector('.log-2')
+const lilyPadElements = document.querySelectorAll('.lilypad')
 
 
 
@@ -62,6 +63,19 @@ function move(event){
         frogElement.style.left = frogLeft + 'px'
         }
     }
+
+    lilyPadElements.forEach((lily)=>{
+        // check if frog position overlaps this lilypad
+        let lilypadRect = lily.getBoundingClientRect()
+        let frogRect = frogElement.getBoundingClientRect()
+
+        if(frogRect.left < lilypadRect.right &&
+            frogRect.right > lilypadRect.left &&
+            frogRect.top < lilypadRect.bottom &&
+            frogRect.bottom > lilypadRect.top){
+            landOnLily(lily)
+        }
+    })
 }
 function carOneMovement(){
 
@@ -124,15 +138,26 @@ function decrementLives(){
     logTwoPosition = 0
 }
 
+function landOnLily(lily){
+    lily.classList.add('visited')
+    let allVisited = [...lilyPadElements].every(pad => pad.classList.contains('visited'))
+    if (allVisited) {
+        win()
+    }
+}
+
+function win(){
+
+}
 
 // set interval for the cars to move
-setInterval(carOneMovement,100)
-setInterval(carTwoMovement,700)
-setInterval(carThreeMovement,1200)
+//setInterval(carOneMovement,100)
+//setInterval(carTwoMovement,700)
+//setInterval(carThreeMovement,1200)
 
 //set interval for the logs to move
-setInterval(logOneMovement,500)
-setInterval(logTwoMovement,300)
+//setInterval(logOneMovement,500)
+//setInterval(logTwoMovement,300)
 
 
 // Event Listener

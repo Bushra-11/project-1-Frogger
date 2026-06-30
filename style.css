@@ -244,10 +244,14 @@ body {
 
 .lilypad {
     margin: 20px;
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
     background-color: rgb(43, 149, 73);
     border-radius: 50%;
+}
+
+.lilypad.visited {
+    background-color: rgb(69, 195, 136);
 }
 
 .road {
