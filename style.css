@@ -305,3 +305,10 @@ body {
     bottom: 0;
     z-index: -1000;
 }
+
+.lane {
+    width: 600px;
+    height: 110px;
+    border-bottom: 13px dashed rgb(255, 255, 255);
+}
+
