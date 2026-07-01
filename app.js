@@ -6,7 +6,7 @@ const logOneElement = document.querySelector('.log-1')
 const logTwoElement = document.querySelector('.log-2')
 const lilyPadElements = document.querySelectorAll('.lilypad')
 const winScreenElement = document.querySelector('#win-screen')
-
+const restartButtonElement = document.querySelector('#restart-button')
 
 
 //Initial frog position
@@ -38,7 +38,6 @@ let isOnLogTwo = false
 let hitCarOne = false
 let hitCarTwo = false
 let hitCarThree = false
-
 
 
 carOneElement.style.left = carOneLeft + 'px'
@@ -95,7 +94,6 @@ function move(event) {
     rideLogTwo()
     checkDrowning()
 }
-
 
 
 function decrementLives() {
@@ -268,6 +266,19 @@ function win() {
         winScreenElement.innerHTML = '<h1>You Won! Congratulations</h1>'
     }
     winScreenElement.style.display = 'block'
+    restartButtonElement.style.display = 'block'
+
+}
+
+function restartGame() {
+    lives = 3
+    completedRounds = 0
+    frogTop = 580
+    frogLeft = 260
+    winScreenElement.style.display = 'none'
+    restartButtonElement.style.display = 'none'
+    frogElement.style.top = frogTop + 'px'
+    frogElement.style.left = frogLeft + 'px'
 }
 
 // set interval for the cars to move
@@ -282,3 +293,4 @@ setInterval(logTwoMovement, 300)
 
 // Event Listener
 document.addEventListener('keydown', move)
+document.addEventListener('click', restartGame)

@@ -2,20 +2,26 @@
 
 body {
     margin: 60px;
+    background-color: rgb(215, 227, 233);
 }
 
 #win-screen {
     display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+    color: rgba(0, 0, 0, 0.8);
     text-align: center;
-    padding-top: 200px;
     font-family: 'Fredoka', sans-serif;
+}
+
+#restart-button {
+    display: none;
+    color: white;
+    background-color: rgb(71, 213, 73);
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 auto 20px;
 }
 
 #board {
@@ -274,7 +280,7 @@ body {
 }
 
 .lilypad.visited {
-    background-color: rgb(69, 195, 136);
+    background-color: #38B379;
 }
 
 .road {
