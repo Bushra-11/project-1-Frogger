@@ -5,6 +5,7 @@ const carThreeElement = document.querySelector('.car-3')
 const logOneElement = document.querySelector('.log-1')
 const logTwoElement = document.querySelector('.log-2')
 const lilyPadElements = document.querySelectorAll('.lilypad')
+const winScreenElement = document.querySelector('#win-screen')
 
 
 
@@ -24,8 +25,11 @@ let logOnePosition = 0
 let logTwoPosition = 250
 
 
-//Intial number of lives
+//Intial number of lives and rounds
 let lives = 3
+let completedRounds = 0
+const totalRounds = 4
+let gameOver = false
 
 // Intial state for the frog before riding the log
 let isOnLogOne = false
@@ -34,7 +38,6 @@ let isOnLogTwo = false
 let hitCarOne = false
 let hitCarTwo = false
 let hitCarThree = false
-
 
 
 
@@ -230,11 +233,11 @@ function checkCollision() {
     }
 }
 
-function isOnLog(){
+function isOnLog() {
     return isOnLogOne || isOnLogTwo
 }
 
-function checkDrowning(){
+function checkDrowning() {
     let logOneLocation = logOneElement.getBoundingClientRect()
     let logTwoLocation = logTwoElement.getBoundingClientRect()
     let frogRect = frogElement.getBoundingClientRect()
@@ -248,7 +251,24 @@ function checkDrowning(){
     if ((inLogOneRow || inLogTwoRow) && !(onLogOne || onLogTwo)) {
         decrementLives()
     }
-}   
+}
+
+function landOnLily(lily) {
+    completedRounds += 1
+    lily.classList.add('visited')
+    let allVisited = [...lilyPadElements].every(pad => pad.classList.contains('visited'))
+    if (allVisited) {
+        win()
+    }
+}
+
+function win() {
+    gameOver = true
+    if (completedRounds >= totalRounds) {
+        winScreenElement.innerHTML = '<h1>You Won! Congratulations</h1>'
+    }
+    winScreenElement.style.display = 'block'
+}
 
 // set interval for the cars to move
 setInterval(carOneMovement, 100)

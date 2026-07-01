@@ -4,11 +4,34 @@ body {
     margin: 60px;
 }
 
+#win-screen {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding-top: 200px;
+    font-family: 'Fredoka', sans-serif;
+}
+
 #board {
     height: 660px;
     width: 600px;
     position: relative;
-    border: black solid;
+    border: black solid 4px;
+}
+
+.river {
+    width: 600px;
+    height: 320px;
+    background-color: rgb(164, 199, 218);
+    position: absolute;
+    z-index: -1000
+
 }
 
 #frog {
@@ -255,8 +278,10 @@ body {
 }
 
 .road {
-
     width: 600px;
-    height: 240px;
-    background-color: black;
+    height: 350px;
+    background-color: rgb(49, 47, 47);
+    position: absolute;
+    bottom: 0;
+    z-index: -1000;
 }
