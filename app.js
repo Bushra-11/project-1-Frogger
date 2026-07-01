@@ -50,6 +50,8 @@ logTwoElement.style.left = logTwoPosition + 'px'
 
 function move(event) {
 
+    if (gameOver) return
+
     if (event.key === 'ArrowUp') {
         if (frogTop > 0) {
             frogTop -= 60
@@ -285,6 +287,7 @@ function gameOverScreen() {
 }
 
 function restartGame() {
+    gameOver = false
     lives = 3
     completedRounds = 0
     frogTop = 580
@@ -294,12 +297,13 @@ function restartGame() {
     restartButtonElement.style.display = 'none'
     frogElement.style.top = frogTop + 'px'
     frogElement.style.left = frogLeft + 'px'
+    lilyPadElements.forEach(lily => lily.classList.remove('visited'))
 }
 
 // set interval for the cars to move
 setInterval(carOneMovement, 100)
 setInterval(carTwoMovement, 700)
-setInterval(carThreeMovement, 1200)
+setInterval(carThreeMovement, 1000)
 
 //set interval for the logs to move
 setInterval(logOneMovement, 500)
