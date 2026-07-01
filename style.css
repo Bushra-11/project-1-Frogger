@@ -3,6 +3,7 @@
 body {
     margin: 60px;
     background-color: rgb(215, 227, 233);
+    text-align: center;
 }
 
 #win-screen {
@@ -43,6 +44,7 @@ body {
     width: 600px;
     position: relative;
     border: black solid 4px;
+    margin: 0 auto;
 }
 
 .river {
