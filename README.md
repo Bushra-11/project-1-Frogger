@@ -1,5 +1,14 @@
 # Frogger
 
+## Technologies Used
+* HTML
+* CSS
+* JavaScript
+* GitHub (hosting)
+
+## Description
+Guide a frog safely across a busy road and a dangours river to reach the lily pads on the other side. Dodge speeding cars, hop across floating logs, and use your three lives wisely, one wrong move and it's game over!
+
 ## user Stories
 1. As a player i want to move the frog up, down,left, and right with the arrow keys to navigate on the screen
 
@@ -20,3 +29,20 @@
 9. As a player I should win if I pass the road and the river to a safe slot
 
 10. As a player I want to restart the game when i lose 
+
+
+
+## Screenshots
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+## Future Enhancements
+1. Make rounds to pass before you win
+2. Add timer to make the game harder
+3. Add levels for more difficulty  
+
+## Credits
+Special thanks to Mr.Omar for his assistance during the game development
