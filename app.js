@@ -5,6 +5,7 @@ const carThreeElement = document.querySelector('.car-3')
 const logOneElement = document.querySelector('.log-1')
 const logTwoElement = document.querySelector('.log-2')
 const lilyPadElements = document.querySelectorAll('.lilypad')
+const livesElement = document.querySelector('#lives')
 const winScreenElement = document.querySelector('#win-screen')
 const restartButtonElement = document.querySelector('#restart-button')
 
@@ -107,6 +108,10 @@ function decrementLives() {
     logOnePosition = 0
     logTwoPosition = 0
 
+    if (lives <= 0) {
+        gameOverScreen()
+    }
+
     frogElement.style.top = frogTop + 'px'
     frogElement.style.left = frogLeft + 'px'
     carOneElement.style.left = carOneLeft + 'px'
@@ -114,6 +119,7 @@ function decrementLives() {
     carThreeElement.style.left = carThreeLeft + 'px'
     logOneElement.style.left = logOnePosition + 'px'
     logTwoElement.style.left = logTwoPosition + 'px'
+    livesElement.textContent = `Lives: ${lives}`
 
 }
 
@@ -270,11 +276,19 @@ function win() {
 
 }
 
+function gameOverScreen() {
+    gameOver = true
+    winScreenElement.innerHTML = '<h1>Game Over! You lost all your lives</h1>'
+    winScreenElement.style.display = 'block'
+    restartButtonElement.style.display = 'block'
+}
+
 function restartGame() {
     lives = 3
     completedRounds = 0
     frogTop = 580
     frogLeft = 260
+    livesElement.textContent = `Lives: ${lives}`
     winScreenElement.style.display = 'none'
     restartButtonElement.style.display = 'none'
     frogElement.style.top = frogTop + 'px'

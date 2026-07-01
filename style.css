@@ -12,6 +12,13 @@ body {
     font-family: 'Fredoka', sans-serif;
 }
 
+#game-over-screen {
+    display: none;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+}
+
 #restart-button {
     display: none;
     color: white;
@@ -22,6 +29,13 @@ body {
     font-size: 16px;
     cursor: pointer;
     margin: 0 auto 20px;
+}
+
+#lives {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
 #board {
