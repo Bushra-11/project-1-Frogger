@@ -98,6 +98,7 @@ function move(event) {
 
 
 function decrementLives() {
+    if (lives <= 0) return
     lives -= 1
     //reset the frog position again
     frogTop = 580
@@ -108,7 +109,7 @@ function decrementLives() {
     logOnePosition = 0
     logTwoPosition = 0
 
-    if (lives <= 0) {
+    if (lives === 0) {
         gameOverScreen()
     }
 
