@@ -267,6 +267,12 @@ function landOnLily(lily) {
     if (allVisited) {
         win()
     }
+    else {
+         frogTop = 580
+         frogLeft = 260
+        frogElement.style.top = frogTop + 'px'
+      frogElement.style.left = frogLeft + 'px'
+    }
 }
 
 function win() {
